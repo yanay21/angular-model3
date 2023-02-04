@@ -1,14 +1,11 @@
-<div class="row">
-    <div ng-repeat="item in menu.foundItems">
-        <div class="clearfix" ng-if="$index % 2 == 0"></div>
-        <div class="col-md-6">
-            <div class="jumbotron">
-                <h2>{{item.name}}</h2>
-                <h3>{{item.short_name}}</h3>
-                <p>{{item.description}}</p>
-                <input type="button" ng-click="menu.onRemove({index: $index})" class="btn btn-lg btn-primary" value="Don't want this one!">
-            </div>
-        </div>
-    </div>
-</div>
-<div class="alert alert-danger" role="alert" ng-show="menu.onEmpty">{{menu.onEmpty}}</div>
+<ol>
+  <li ng-repeat="element in narrow.items">
+
+    <div> Name :{{element.name}} </div>
+    <div> Short name :{{element.short_name}} </div>
+    <div> Description :{{element.description}} </div>
+    <button ng-click = "narrow.removeItem($index, narrow.items)"> Don't want this one</button>
+  </li>
+  <div ng-if = "narrow.items.length == 0" > Nothing found </div>
+
+</ol>
